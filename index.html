@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exploring Sleep Quality</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 样式 -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- D3 主库 -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+
+  <!-- 正确的 fisheye 插件 -->
+  <script src="https://cdn.jsdelivr.net/gh/d3/d3-plugins@master/fisheye/fisheye.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Exploring Sleep Quality</h1>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>
+        How do our daily habits — mood, productivity, caffeine, exercise — shape the way we sleep?
+        This project explores the complex relationship between <strong>sleep quality</strong> and other lifestyle factors,
+        using interactive visualisations. The chart below highlights how productivity and work hours interact with sleep quality.
+      </p>
+    </section>
+
+    <section class="chart">
+      <h2>Fisheye Zoom Scatterplot: Sleep Quality vs Productivity</h2>
+      <ul style="font-size: 0.95em; color: #444; margin-top: 30px; margin-bottom: 20px; margin-left: 0px;">
+        <li>X-axis: Sleep Quality </li>
+        <li>Y-axis: Productivity Score </li>
+        <li>Dot Size: Work Hours per Day </li>
+        <li>Dot Color: Gender </li>
+      </ul>
+
+      <div id="chart-area"></div>
+
+      <div id="chart-area"></div>
+
+      <!-- 添加你的 Flourish 图表 -->
+      <div class="flourish-embed flourish-chart" data-src="visualisation/23302297">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+        <noscript>
+          <img src="https://public.flourish.studio/visualisation/23302297/thumbnail" width="100%" alt="chart visualization" />
+        </noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created by Yinhan Liu · DECO7220 A3 · 2025</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+:root {
+    --primary: #35388e;
+    --accent: #fdc500;
+    --warning: #dd3131;
+    --bg-light: #f8f8f8;
+    --text-dark: #2e2e2e;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+  }
+  
+  header {
+    background-color: var(--primary);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+  
+  main {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .intro {
+    font-size: 1.2em;
+    line-height: 1.8;
+    background-color: white;
+    padding: 25px 30px;
+    border-left: 8px solid var(--accent);
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+  }
+  
+  .chart {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  footer {
+    margin-top: 50px;
+    background-color: var(--warning);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+  }
+  
+  
+  .grid line {
+    stroke: #ccc;
+    stroke-opacity: 0.3;
+  }
+  
