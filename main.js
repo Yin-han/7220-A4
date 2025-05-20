@@ -25,7 +25,7 @@ const fisheye = d3.fisheye.circular()
   .radius(150)
   .distortion(3);
 
-d3.csv("data/sleep_Fisheye.csv").then(data => {
+d3.csv("sleep_Fisheye.csv").then(data => {
   data.forEach(d => {
     d["Sleep Quality"] = +d["Sleep Quality"];
     d["Productivity Score"] = +d["Productivity Score"];
