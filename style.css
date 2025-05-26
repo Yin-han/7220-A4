@@ -65,3 +65,16 @@
     stroke-opacity: 0.3;
   }
   
+
+  /*Avg. sq图*/
+  .chart-image {
+    text-align: left;
+    margin-top: 50px;
+  }
+
+  .chart-image img.svg-chart {
+    max-width: 50%;
+    height: auto;
+  }
+
+
