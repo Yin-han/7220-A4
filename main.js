@@ -1,142 +1,110 @@
-const margin = {top: 40, right: 20, bottom: 70, left: 80};
-const width = 800 - margin.left - margin.right;
-const height = 500 - margin.top - margin.bottom;
+// const margin = { top: 40, right: 20, bottom: 70, left: 80 };
+// const width = 800 - margin.left - margin.right;
+// const height = 500 - margin.top - margin.bottom;
 
-const color = d3.scaleOrdinal()
-  .domain(["Male", "Female", "Other"])
-  .range(["#1f77b4", "#ff7f0e", "#2ca02c"]);
+// const svg = d3.select("#chart-area")
+//   .append("svg")
+//   .attr("width", width + margin.left + margin.right)
+//   .attr("height", height + margin.top + margin.bottom)
+//   .append("g")
+//   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-function jitter(value) {
-  return value + (Math.random() - 0.5) * 0.3;
-}
+// const x = d3.scaleLinear().range([0, width]);
+// const y = d3.scaleLinear().range([height, 0]);
 
-const svg = d3.select("#chart-area")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", `translate(${margin.left},${margin.top})`);
+// // Fisheye scale setup
+// const fisheye = d3.fisheye.circular().radius(100).distortion(2);
 
-const x = d3.scaleLinear().range([0, width]);
-const y = d3.scaleLinear().range([height, 0]);
-const r = d3.scaleSqrt().range([4, 20]);
+// const color = d3.scaleOrdinal()
+//   .domain(["Male", "Female"])
+//   .range(["#35388e", "#dd3131"]);
 
-const fisheye = d3.fisheye.circular()
-  .radius(150)
-  .distortion(3);
+// const tooltip = d3.select("body")
+//   .append("div")
+//   .style("position", "absolute")
+//   .style("background", "white")
+//   .style("border", "1px solid #ccc")
+//   .style("padding", "8px")
+//   .style("border-radius", "5px")
+//   .style("pointer-events", "none")
+//   .style("opacity", 0)
+//   .style("font-size", "0.9em");
 
-d3.csv("sleep_Fisheye.csv").then(data => {
-  data.forEach(d => {
-    d["Sleep Quality"] = +d["Sleep Quality"];
-    d["Productivity Score"] = +d["Productivity Score"];
-    d["Work Hours (hrs/day)"] = +d["Work Hours (hrs/day)"];
-    d.jitterX = jitter(d["Sleep Quality"]);
-    d.jitterY = jitter(d["Productivity Score"]);
-  });
+// d3.csv("sleep_hours_quality_gender.csv").then(data => {
+//   data.forEach(d => {
+//     d.SleepHours = +d.SleepHours;
+//     d.SleepQuality = +d.SleepQuality;
+//   });
 
-  x.domain(d3.extent(data, d => d.jitterX)).nice();
-  y.domain(d3.extent(data, d => d.jitterY)).nice();
-  r.domain(d3.extent(data, d => d["Work Hours (hrs/day)"])).nice();
+//   x.domain(d3.extent(data, d => d.SleepHours)).nice();
+//   y.domain(d3.extent(data, d => d.SleepQuality)).nice();
 
-  const xTicks = x.ticks(10);
-  const yTicks = y.ticks(10);
+//   svg.append("g")
+//     .attr("transform", `translate(0, ${height})`)
+//     .call(d3.axisBottom(x));
 
-  const xGrid = svg.selectAll(".x-grid")
-    .data(xTicks)
-    .enter()
-    .append("line")
-    .attr("class", "x-grid")
-    .attr("x1", d => x(d))
-    .attr("x2", d => x(d))
-    .attr("y1", 0)
-    .attr("y2", height)
-    .attr("stroke", "#ccc")
-    .attr("stroke-opacity", 0.3);
+//   svg.append("g")
+//     .call(d3.axisLeft(y));
 
-  const yGrid = svg.selectAll(".y-grid")
-    .data(yTicks)
-    .enter()
-    .append("line")
-    .attr("class", "y-grid")
-    .attr("x1", 0)
-    .attr("x2", width)
-    .attr("y1", d => y(d))
-    .attr("y2", d => y(d))
-    .attr("stroke", "#ccc")
-    .attr("stroke-opacity", 0.3);
+//   // 轴标签
+//   svg.append("text")
+//     .attr("text-anchor", "middle")
+//     .attr("x", width / 2)
+//     .attr("y", height + 50)
+//     .text("Total Sleep Hours")
+//     .style("font-size", "14px");
 
-  const xAxisGroup = svg.append("g").attr("class", "x-ticks");
-  const xLabels = xAxisGroup.selectAll("text")
-    .data(xTicks)
-    .enter()
-    .append("text")
-    .attr("y", height + 20)
-    .attr("x", d => x(d))
-    .attr("text-anchor", "middle")
-    .text(d => d);
+//   svg.append("text")
+//     .attr("text-anchor", "middle")
+//     .attr("transform", "rotate(-90)")
+//     .attr("x", -height / 2)
+//     .attr("y", -55)
+//     .text("Sleep Quality")
+//     .style("font-size", "14px");
 
-  const yAxisGroup = svg.append("g").attr("class", "y-ticks");
-  const yLabels = yAxisGroup.selectAll("text")
-    .data(yTicks)
-    .enter()
-    .append("text")
-    .attr("x", -10)
-    .attr("y", d => y(d))
-    .attr("text-anchor", "end")
-    .attr("alignment-baseline", "middle")
-    .text(d => d);
+//   const dots = svg.selectAll("circle")
+//     .data(data)
+//     .enter()
+//     .append("circle")
+//     .attr("r", 4)
+//     .attr("fill", d => color(d.Gender))
+//     .attr("opacity", 0.8)
+//     .attr("cx", d => x(d.SleepHours))
+//     .attr("cy", d => y(d.SleepQuality))
+//     .on("mouseover", (event, d) => {
+//       tooltip.transition().duration(150).style("opacity", 1);
+//       tooltip.html(`
+//         <strong>Gender:</strong> ${d.Gender}<br/>
+//         <strong>Sleep Hours:</strong> ${d.SleepHours}<br/>
+//         <strong>Sleep Quality:</strong> ${d.SleepQuality}
+//       `)
+//         .style("left", (event.pageX + 10) + "px")
+//         .style("top", (event.pageY - 28) + "px");
+//     })
+//     .on("mouseout", () => {
+//       tooltip.transition().duration(150).style("opacity", 0);
+//     });
 
-  const circles = svg.selectAll("circle")
-    .data(data)
-    .enter()
-    .append("circle")
-    .attr("cx", d => x(d.jitterX))
-    .attr("cy", d => y(d.jitterY))
-    .attr("r", d => r(d["Work Hours (hrs/day)"]))
-    .attr("fill", d => color(d["Gender"]))
-    .attr("opacity", 0.7);
+//   // Fisheye effect
+//   svg.on("mousemove", function (event) {
+//     fisheye.focus(d3.pointer(event, this));
 
-  svg.append("text")
-    .attr("text-anchor", "middle")
-    .attr("x", width / 2)
-    .attr("y", height + 50)
-    .text("Sleep Quality")
-    .style("font-size", "14px")
-    .style("fill", "#333");
+//     dots
+//       .attr("cx", d => fisheye({ x: x(d.SleepHours), y: y(d.SleepQuality) }).x)
+//       .attr("cy", d => fisheye({ x: x(d.SleepHours), y: y(d.SleepQuality) }).y);
+//   });
+// });
 
-  svg.append("text")
-    .attr("text-anchor", "middle")
-    .attr("transform", `rotate(-90)`)
-    .attr("x", -height / 2)
-    .attr("y", -55)
-    .text("Productivity Score")
-    .style("font-size", "14px")
-    .style("fill", "#333");
 
-  svg.on("mousemove", function(event) {
-    const [mx, my] = d3.pointer(event);
-    fisheye.focus([mx, my]);
+<script>
+  const scrollItems = document.querySelectorAll('.scroll-fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
 
-    // 更新圆点
-    circles
-      .attr("cx", d => fisheye({x: x(d.jitterX), y: y(d.jitterY)}).x)
-      .attr("cy", d => fisheye({x: x(d.jitterX), y: y(d.jitterY)}).y);
-
-    // 更新网格线
-    xGrid
-      .attr("x1", d => fisheye({x: x(d), y: height}).x)
-      .attr("x2", d => fisheye({x: x(d), y: height}).x);
-
-    yGrid
-      .attr("y1", d => fisheye({x: 0, y: y(d)}).y)
-      .attr("y2", d => fisheye({x: 0, y: y(d)}).y);
-
-    // 更新坐标刻度
-    xLabels
-      .attr("x", d => fisheye({x: x(d), y: height}).x)
-      .attr("y", height + 20);
-
-    yLabels
-      .attr("y", d => fisheye({x: 0, y: y(d)}).y);
-  });
-});
+  scrollItems.forEach(el => observer.observe(el));
+</script>

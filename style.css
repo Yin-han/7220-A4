@@ -6,29 +6,130 @@
     --text-dark: #2e2e2e;
   }
   
+  /* 设置正文使用 Open Sans 字体 */
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     background-color: var(--bg-light);
     color: var(--text-dark);
   }
+
+  /* 设置所有标题（h1, h2 等）使用 Ubuntu 字体 */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  .chart-heading {
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto 30px auto;
+  }
+
+  .chart-heading h2 {
+    font-size: 1.6em;
+    margin-top: 80px;
+    margin-bottom: 10px;
+  }
+
+  .chart-heading p {
+    font-size: 1.05em;
+    color: #444;
+  }
+
+
+
+
+
+
   
   header {
     background-color: var(--primary);
     color: white;
-    padding: 30px 20px;
+    padding: 80px 40px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
+
+  /* 主标题带图标横排样式 */
+  .header-with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    background-color: var(--primary);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .header-with-icon h1 {
+    margin: 0;
+    font-size: 3.2em;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  .header-icon {
+    height: 200px;   /* 你可以改为 100px 看效果 */
+    width: auto;
+    animation: float 4s ease-in-out infinite;
+    will-change: transform; /* ✅ 优化性能，确保 GPU 加速 */
+  }
+
+  /* 月亮动画关键帧 */
+  @keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+  }
+
+
+  /* 名字 */
+  .designer-badge {
+  position: absolute;
+  bottom: -30px;              /* 再往下 */
+  left: 0px;
+  background-color: #dd3131;
+  color: white;
+  padding: 8px 20px;        /* 加宽加高 */
+  font-size: 1.25em;            /* 字体更大 */
+  font-family: 'Ubuntu', sans-serif;
+  text-align: left;
+  line-height: 1.4;
+  border-radius: 0px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  min-width: 100px;          /* 变宽 */
+}
+
+.designer-badge span {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+header {
+  position: relative; /* 确保定位生效 */
+}
+
+
   
   h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 3.0em;
+    font-weight: 300;       
   }
   
+  /* 副标题 */
+  .subtitle {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 10px;
+    text-align: center;
+  }
+
   main {
     padding: 40px 20px;
-    max-width: 900px;
+    max-width: 1500px;
     margin: auto;
   }
   
@@ -41,8 +142,18 @@
     border-radius: 6px;
     box-shadow: 0 0 8px rgba(0,0,0,0.05);
     margin-bottom: 50px;
+
+    /* 添加或修改以下部分以增加宽度 */
+    max-width: 1500px;     /* 原先可能是默认 900px 以下，调大 */
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  /* 黄色框 */
   
+
+
+
   .chart {
     background-color: white;
     padding: 20px;
@@ -64,6 +175,27 @@
     stroke: #ccc;
     stroke-opacity: 0.3;
   }
+
+
+  /* story 1 SLEEP START TIME VARIES BY AGE */
+  .section-title {
+    font-size: 28px;        /* 放大标题 */
+    text-align: center;
+    /* font-weight:normal ; */
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+
+  .section-text {
+    font-size: 18px;
+    font-weight: 100;       /* 加粗正文 */
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+
   
 
   /*Avg. sq图*/
@@ -76,5 +208,97 @@
     max-width: 50%;
     height: auto;
   }
+
+  .sleep-illustration-container {
+    position: relative;
+    height: 400px;
+    margin: 100px auto;
+    text-align: center;
+  }
+
+  .sleep-illustration-container img {
+    max-height: 180px;
+    margin: 0 20px;
+  }
+
+
+  .flourish-embed {
+  max-width: 1000px;     /* 可根据需要改成 800px / 1000px 等 */
+  margin: 0 auto;       /* ✅ 居中 */
+  padding: 10px 0;
+}
+
+/* 图1 */
+  .chart-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chart-left {
+    flex: 1 1 50%;
+    min-width: 350px;
+    text-align: center;
+  }
+
+  .chart-left img.svg-chart {
+    max-width: 90%;   /* 控制图表宽度 */
+    height: auto;
+  }
+
+  .chart-right {
+    flex: 1 1 40%;
+    min-width: 300px;
+    font-size: 1.05em;
+    line-height: 1.6;
+  }
+
+  .chart-right h2 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+  }
+
+  /* 图2 */
+  .chart-section-swap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 120px auto 60px auto; /* ⬅️ 增大顶部间距为100px */
+  max-width: 1400px;
+}
+
+.chart-section-swap .text-block {
+  flex: 1 1 40%;
+  min-width: 300px;
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+
+.chart-section-swap .text-block h2 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+
+.chart-section-swap .image-block {
+  flex: 1 1 50%;
+  min-width: 350px;
+  text-align: center;
+}
+
+.chart-section-swap .image-block img.svg-chart {
+  max-width: 90%;
+  height: auto;
+}
+
+
 
 

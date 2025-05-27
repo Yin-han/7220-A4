@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Exploring Sleep Quality</title>
+  <title>What Really Shapes a Good Night's Sleep?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- 样式 --> 
   <link rel="stylesheet" href="style.css">
+
+  <!-- 字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
 
   <!-- D3 主库 -->
   <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -16,36 +20,83 @@
 </head>
 <body>
 
-  <header>
-    <h1>Exploring Sleep Quality</h1>
-  </header>
+<header class="header-with-icon">
+  <div class="header-content">
+    <img src="moon.png" alt="Moon Icon" class="header-icon">
+    <div class="text-group">
+      <h1>What Really Shapes a Good Night's Sleep?</h1>
+      <p class="subtitle">
+        It’s not just about sleeping early or sleeping more — the data has opinions.
+      </p>
+    </div>
+  </div>
+
+  <div class="designer-badge">
+    <p><span>Designed by</span><br><strong>Yinhan Liu</strong></p>
+  </div>
+
+</header>
+
 
   <main>
-    <section class="intro">
+    <!-- <div class="sleep-illustration-container">
+      <img src="moon.png" class="floating-item" alt="moon illustration">
+      <img src="sleepy-figure1.png" class="scroll-fade" alt="sleeping figure">
+      <img src="sleepy-figure2.png" class="scroll-fade delay" alt="yawning figure">
+    </div> -->
+
+        <section class="intro">
       <p>
-        How do our daily habits — mood, productivity, caffeine, exercise — shape the way we sleep?
-        This project explores the complex relationship between <strong>sleep quality</strong> and other lifestyle factors,
-        using interactive visualisations. The chart below highlights how productivity and work hours interact with sleep quality.
+        You’ve probably heard all kinds of advice about sleep:<br/>
+        <em>“Go to bed early and you’ll sleep better.”</em><br/>
+        <em>“More sleep means more energy.”</em><br/>
+        <em>“The older you get, the worse you sleep.”</em>
+      </p>
+      <p>
+        But how true are these claims?  
+        This interactive project dives into real-world data to explore the complex relationship between 
+        <strong>bedtime, sleep quality, sleep duration, and age</strong>. 
+        With a series of visualisations, we uncover surprising — and sometimes myth-busting — insights 
+        about what actually contributes to a restful night.
+      </p>
+      <p>
+        Who sleeps the earliest? Who sleeps the best?  
+        And which age group is secretly winning at sleep?  
+        <strong>Let’s find out.</strong>
       </p>
     </section>
 
-    <section class="chart">
+    <!-- <section class="chart">
       <h2>Fisheye Zoom Scatterplot: Sleep Quality vs Productivity</h2>
       <ul style="font-size: 0.95em; color: #444; margin-top: 30px; margin-bottom: 20px; margin-left: 0px;">
-        <li>X-axis: Sleep Quality </li>
-        <li>Y-axis: Productivity Score </li>
-        <li>Dot Size: Work Hours per Day </li>
+        <li>X-axis: Sleep Hours </li>
+        <li>Y-axis: Sleep Quality </li>
         <li>Dot Color: Gender </li>
       </ul>
 
-      <div id="chart-area"></div>
+      <div id="chart-area"></div> -->
 
 
       <!-- Flourish Story 1 上方文字 -->
-      <div class="flourish-heading">
-        <h2>Sleepy Time Varies by Age</h2>
+      <div class="chart-heading">
+        <h2>🌙 Same Time, Different Age: Who’s Going to Bed Now?</h2>
         <p>
-          The percentage of people in each age group who are sleeping is different as you shift time.
+          For the young and restless, nighttime is when life really begins. Scrolling endlessly, gaming like there’s no tomorrow, zoning out, overthinking—somehow they manage to do eight entirely useless yet deeply satisfying things before bed. They’re not tired—they just refuse to let the day end too soon.
+        </p>
+
+        <p>
+          Then come the planners and professionals. Sleep becomes a ritual: a warm shower, a cup of tea, Wi-Fi off by 10. It's not laziness—it’s strategic. That 8am meeting isn’t going to cancel itself.
+        </p>
+
+        <p>
+          And finally, the peaceful sleepers. Not too early, not too late—just... whenever it feels right. Lights off at ten? Maybe. Staring at the ceiling at 3am? Also possible. They don’t force sleep; they listen to their bodies. For them, a good night’s rest is the gentlest form of self-respect.
+        </p>
+      </div>
+
+      <div class="section">
+        <p class="section-title">SLEEP START TIME VARIES BY AGE</p>
+        <p class="section-text">
+          The percentage of people in each age group who are starting sleep is different as you shift time.
           Different age means different responsibilities.
         </p>
       </div>
@@ -61,11 +112,25 @@
 
 
       <!-- Flourish Story 2 上方文字 -->
-      <div class="flourish-heading" style="margin-top: 50px;">
-        <h2>Sleep Quality by Bedtime and Age</h2>
+      <div class="chart-heading" style="margin-top: 50px;">
+        <h2>😴 Does Sleeping Early = Sleeping Well?</h2>
         <p>
-          This story explores how average sleep quality varies across different age groups at different sleep start times.
-          Not all age groups benefit equally from going to bed earlier or later.
+          It’s easy to assume that going to bed earlier guarantees better sleep—but the data tells a more nuanced story.
+        </p> 
+
+        <p>
+          Sleep quality doesn’t seem to follow the clock alone. While some age groups do show higher sleep quality at certain times, the pattern isn’t as straightforward as “the earlier, the better.” The chart reveals some clear patterns—and a few surprises.
+        </p>
+
+        <p>
+          Maybe sleep is a bit of a mystery, shaped by age, habits, and other unknown factors.
+        </p>
+      </div>
+
+      <div class="section">
+        <p class="section-title">SLEEP QUALITY VARIES WITH AGE AND SLEEP START TIME</p>
+        <p class="section-text">
+          Different age groups report different sleep quality even when going to bed at the same time. Sleep quality may depend on more than just bedtime.
         </p>
       </div>
 
@@ -77,11 +142,36 @@
         </noscript>
       </div>
 
-      <!-- Ave.sq 图 -->
-      <div class="chart-image">
-        <h2>Overall Sleep Quality by Age Group</h2>
-        <img src="Avg_sq.png" alt="Average Sleep Quality by Age" class="svg-chart">
+      <!-- 图1 -->
+      <div class="chart-section">
+        <div class="chart-left">
+          <img src="Avg_sq.png" alt="Average Sleep Quality by Age" class="svg-chart">
+        </div>
+        <div class="chart-right">
+          <h2>🏆 The Real Sleep Quality Champions</h2>
+          <p>
+            Zooming out, we can see that 26–30-year-olds consistently lead in sleep quality. 
+            Maybe it’s their routines, their health, or just good sleep karma — whatever it is, they’ve nailed it.
+          </p>
+        </div>
       </div>
+
+
+      <!-- 图2 -->
+      <div class="chart-section-swap">
+        <div class="text-block">
+          <h2>⏰ Who Sleeps the Longest?</h2>
+          <p>
+            Sleep duration follows a similar trend — the same 26–30 group also gets the most hours of sleep on average. 
+            So they’re not just sleeping well, they’re sleeping more. Jealous yet?
+          </p>
+        </div>
+        <div class="image-block">
+          <img src="age_sh@2x.png" alt="Average Sleep Hours by Age" class="svg-chart">
+        </div>
+      </div>
+
+
 
 
 
@@ -93,5 +183,18 @@
   </footer>
 
   <script src="main.js"></script>
+  <script>
+    const scrollItems = document.querySelectorAll('.scroll-fade');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    scrollItems.forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
