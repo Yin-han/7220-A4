@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>What Really Shapes a Good Night's Sleep?</title>
+  <title>Bedtimes, Age, and the Myth of the Perfect Sleep</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- 样式 --> 
@@ -24,10 +24,14 @@
   <div class="header-content">
     <img src="moon.png" alt="Moon Icon" class="header-icon">
     <div class="text-group">
-      <h1>What Really Shapes a Good Night's Sleep?</h1>
+      <h1>Bedtimes, Age, and the Myth of the Perfect Sleep</h1>
       <p class="subtitle">
+        This project visualizes self-reported sleep data to examine how bedtime, sleep duration, and sleep quality vary across different age groups.
+      </p>
+      <p class="subtext">
         It’s not just about sleeping early or sleeping more — the data has opinions.
       </p>
+
     </div>
   </div>
 
@@ -142,37 +146,108 @@
         </noscript>
       </div>
 
+      <!-- 图文分析区块 -->
+      <div class="chart-analysis-section">
+        <h3>Looking Closer: Does Sleeping Early Really Help?</h3>
+        <div class="four-charts">
+          <img src="img1.jpg" alt="Early Sleep Group Size" />
+          <img src="img2.jpg" alt="Early Sleep Quality" />
+          <img src="img3.jpg" alt="Late Sleep Group Size" />
+          <img src="img4.jpg" alt="Late Sleep Quality" />
+        </div>
+        <p class="analysis-text">
+          I compared the number of people who went to bed between 20:00 and 21:00 with their reported sleep quality, and found no clear correlation.
+          Similarly, among those who slept between 23:00 and 24:00, sleep quality still showed no strong link to timing.
+          <strong>These results suggest that sleep quality may depend on a variety of factors — not just age or bedtime.</strong>
+        </p>
+      </div>
+
+
       <!-- 图1 -->
       <div class="chart-section">
         <div class="chart-left">
+
+      <div class="section">
+        <p class="section-title">AVERAGE SLEEP QUALITY BY AGE GROUP</p>
+        <p class="section-text">
+          This chart compares the average self-reported sleep quality across different age groups. 
+        </p>
+      </div>
+
           <img src="Avg_sq.png" alt="Average Sleep Quality by Age" class="svg-chart">
         </div>
+        
         <div class="chart-right">
-          <h2>🏆 The Real Sleep Quality Champions</h2>
+          <h2>🏆 Not Always First, But Often the Best Rested</h2>
           <p>
-            Zooming out, we can see that 26–30-year-olds consistently lead in sleep quality. 
-            Maybe it’s their routines, their health, or just good sleep karma — whatever it is, they’ve nailed it.
+            Sleep quality doesn’t swing wildly between age groups — but on average, 26–30-year-olds seem to have found a pretty good rhythm.
+          </p>
+          
+          <p>
+            Maybe it’s the sweet spot in life: young enough to bounce back from a late night, old enough to have a bedtime. With fewer family duties and decent health, this group just might have cracked the sleep-life balance (for now).
+          </p>
+
+          <p>
+            In contrast, the 46–50 group reports the lowest average. It's no surprise — this phase often comes with more responsibilities, more interruptions, and less time to rest. Life gets louder, and sleep gets... shuffled.
           </p>
         </div>
       </div>
 
 
+
       <!-- 图2 -->
-      <div class="chart-section-swap">
-        <div class="text-block">
+      <div class="chart-section">
+        <div class="chart-right">
           <h2>⏰ Who Sleeps the Longest?</h2>
           <p>
-            Sleep duration follows a similar trend — the same 26–30 group also gets the most hours of sleep on average. 
-            So they’re not just sleeping well, they’re sleeping more. Jealous yet?
+            Sleep duration doesn’t differ dramatically between groups — but once again, the 26–30-year-olds are quietly winning. On average, they’re clocking the most hours under the covers.
+          </p>
+          <p>
+            Maybe it’s a golden window: grown-up enough to avoid all-nighters, but not yet tangled in life’s louder responsibilities. More sleep, less stress — not a bad deal.
+          </p>
+          <p>
+            At the other end, those around 36–40 get the least sleep. It’s that “sandwich” stage — climbing career ladders while juggling family life. Fewer hours, more alarms. The dream? Just five more minutes.
           </p>
         </div>
-        <div class="image-block">
+
+        <div class="chart-left">
+          <div class="section">
+            <p class="section-title">AVERAGE SLEEP HOURS BY AGE GROUP</p>
+            <p class="section-text">
+              This chart compares the average sleep hours across different age groups.
+            </p>
+          </div>
           <img src="age_sh@2x.png" alt="Average Sleep Hours by Age" class="svg-chart">
         </div>
       </div>
 
+      <section class="conclusion">
+        <h2>Final Thoughts</h2>
+        <p>
+          Sleep is deeply personal, influenced by lifestyle, stress, habits, and individual needs — not just age or bedtime. 
+          Our data challenges the myth that sleeping early always leads to better rest. From early birds to night owls, everyone’s sleep journey is unique.
+        </p>
+        <p>
+          By exploring patterns across age groups and sleep times, we’ve uncovered valuable insights — but also many unanswered questions.
+          In the end, good sleep isn’t just about when you sleep. It’s about how you live.
+        </p>
+      </section>
 
 
+
+
+
+
+
+      <section class="references">
+        <h3>References</h3>
+        <p>
+          Sleep Cycle &amp; Productivity (Adil Shamim)<br>
+          Source: <a href="https://www.kaggle.com/datasets/adilshamim8/sleep-cycle-and-productivity" target="_blank">
+            https://www.kaggle.com/datasets/adilshamim8/sleep-cycle-and-productivity
+          </a>
+        </p>
+      </section>
 
 
 

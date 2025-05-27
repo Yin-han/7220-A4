@@ -21,12 +21,12 @@
 
   .chart-heading {
     text-align: center;
-    max-width: 1500px;
+    max-width: 1200px;
     margin: 0 auto 30px auto;
   }
 
   .chart-heading h2 {
-    font-size: 1.6em;
+    font-size: 2.2em;
     margin-top: 80px;
     margin-bottom: 10px;
   }
@@ -58,7 +58,7 @@
     gap: 25px;
     background-color: var(--primary);
     color: white;
-    padding: 40px 20px;
+    padding: 80px 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
@@ -127,13 +127,22 @@ header {
     text-align: center;
   }
 
+  .subtext {
+    font-size: 1.4em;      /* 放大字体 */
+    font-weight: 500;
+    color: #ffffff;
+    margin-top: 30px;      /* 往下移 */
+    text-align: center;
+  }
+
+
   main {
     padding: 40px 20px;
     max-width: 1500px;
     margin: auto;
   }
   
-  .intro {
+  /* .intro {
     font-size: 1.2em;
     line-height: 1.8;
     background-color: white;
@@ -144,13 +153,39 @@ header {
     margin-bottom: 50px;
 
     /* 添加或修改以下部分以增加宽度 */
-    max-width: 1500px;     /* 原先可能是默认 900px 以下，调大 */
+    /* max-width: 1500px;     
     margin-left: auto;
     margin-right: auto;
-  }
+  } */ 
 
   /* 黄色框 */
-  
+  /* 黄色高亮盒子 + 滑入动画 */
+  .intro {
+    background-color: #fdc500; /* 整块 */
+    border-left: 20px solid #fdc500; /* 左侧黄色标记条 */
+    padding: 30px 40px;
+    border-radius: 0px;
+    margin: 40px auto;
+    max-width: 1500px;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateX(60px); /* 初始从右边滑入 */
+    animation: slideFadeIn 1s ease-out forwards;
+  }
+
+  /* 动画定义 */
+  @keyframes slideFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 
 
 
@@ -190,7 +225,7 @@ header {
     font-size: 18px;
     font-weight: 100;       /* 加粗正文 */
     text-align: center;
-    max-width: 1500px;
+    max-width: 1200px;
     margin: 0 auto;
     line-height: 1.5;
   }
@@ -223,10 +258,58 @@ header {
 
 
   .flourish-embed {
-  max-width: 1000px;     /* 可根据需要改成 800px / 1000px 等 */
-  margin: 0 auto;       /* ✅ 居中 */
-  padding: 10px 0;
-}
+    max-width: 1200px;     /* 可根据需要改成 800px / 1000px 等 */
+    margin: 0 auto;       /* ✅ 居中 */
+    padding: 10px 0;
+  }
+
+  /* 四张图 */
+  .chart-analysis-section {
+    max-width: 1500px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 0px 0px;
+  }
+
+  .chart-analysis-section h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+
+
+  .four-charts img {
+    max-width: 100%;
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 0px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .four-charts img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+
+  .four-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* 每行2张图 */
+    gap: 30px;                       /* 图之间的间距 */
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+
+  .analysis-text {
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #333;
+    max-width: 1200px;
+    margin: 30px auto;  /* ✅ 水平居中关键设置 */
+  }
+
+
 
 /* 图1 */
   .chart-section {
@@ -252,52 +335,108 @@ header {
     height: auto;
   }
 
+  .chart-left .section {
+    margin-bottom: 30px;  /* ✅ 控制标题和图之间的距离，可调节 */
+  }
+
+
   .chart-right {
     flex: 1 1 40%;
     min-width: 300px;
     font-size: 1.05em;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   .chart-right h2 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+
+    /* 图2 */
+    .chart-section-swap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 120px auto 60px auto; /* ⬅️ 增大顶部间距为100px */
+    max-width: 1400px;
+  }
+
+  .chart-section-swap .text-block {
+    flex: 1 1 40%;
+    min-width: 300px;
+    font-size: 1.05em;
+    line-height: 1.5;
+  }
+
+  .chart-section-swap .text-block h2 {
     font-size: 1.6em;
     margin-bottom: 10px;
   }
 
-  /* 图2 */
-  .chart-section-swap {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin: 120px auto 60px auto; /* ⬅️ 增大顶部间距为100px */
-  max-width: 1400px;
-}
+  .chart-section-swap .image-block {
+    flex: 1 1 50%;
+    min-width: 350px;
+    text-align: center;
+  }
 
-.chart-section-swap .text-block {
-  flex: 1 1 40%;
-  min-width: 300px;
-  font-size: 1.05em;
-  line-height: 1.6;
-}
+  .chart-section-swap .image-block img.svg-chart {
+    max-width: 90%;
+    height: auto;
+  }
 
-.chart-section-swap .text-block h2 {
-  font-size: 1.6em;
-  margin-bottom: 10px;
-}
+  .conclusion {
+    max-width: 1500px;
+    margin: 100px auto 60px auto;
+    padding: 40px 30px;
+    background-color: var(--warning);  /* 红色背景 */
+    border-left: 20px solid var(--accent);  /* 黄色竖条 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    font-size: 1.15em;
+    line-height: 1.5;
+    color: white;  /* ✅ 字体颜色改为白色 */
+    border-radius: 0px;
+  }
 
-.chart-section-swap .image-block {
-  flex: 1 1 50%;
-  min-width: 350px;
-  text-align: center;
-}
+  .conclusion h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: white;  /* ✅ 标题字体也改为白色 */
+  }
 
-.chart-section-swap .image-block img.svg-chart {
-  max-width: 90%;
-  height: auto;
-}
+  .conclusion p {
+    margin: 0;
+  }
+
+
+  .references {
+    max-width: 1500px;
+    margin: 100px auto 50px auto;
+    padding: 20px;
+    font-size: 1em;
+    line-height: 1.6;
+    color: #444;
+    border-top: 1px solid #ccc;
+  }
+
+  .references h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #2e2e2e;
+  }
+
+  .references a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .references a:hover {
+    text-decoration: underline;
+  }
 
 
 
