@@ -440,4 +440,211 @@ header {
 
 
 
+/* 卡片3 */
+.chart-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  padding: 20px 30px;
+  margin: 60px auto;
+  max-width: 700px;
+  max-height: 300px;
+  transform-origin: top center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
 
+.chart-pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px; /* 控制两个图表之间的距离 */
+  flex-wrap: nowrap;
+}
+
+.chart-block {
+  min-width: 300px;
+  max-width: 300px;
+  transform: scale(0.4);
+  transform-origin: top left;
+  margin-right: 60px; /* 缩短图表间距 */
+}
+
+.chart-block svg {
+  display: block;
+}
+
+.chart-title h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.chart-title p {
+  font-size: 0.85em;
+  color: #444;
+  line-height: 1.4;
+}
+
+
+
+
+
+
+/* 卡片 */
+.chart-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  padding: 20px 30px;
+  margin: 30px 0;         /* ✅ 改这里：上下30px，取消左右auto */
+  max-width: 600px;
+  max-height: 300px;
+  transform-origin: top center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+
+.chart-card .chart-pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;                  /* 控制两个图表间距 */
+  flex-wrap: nowrap;
+}
+
+.chart-card .chart-block {
+  min-width: 300px;
+  max-width: 300px;
+  transform: scale(0.35);      /* 缩小图表本体尺寸 */
+  transform-origin: top left;
+  margin-right: 30px;         /* 控制图表之间“收拢”的距离 */
+}
+
+.chart-card .chart-block svg {
+  display: block;
+}
+
+.chart-card .chart-title h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.chart-card .chart-title p {
+  font-size: 0.85em;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* 卡片容器布局（每行两个） */
+.card-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+/* 外层卡片容器 */
+.flip-card {
+  perspective: 1000px;
+  width: 600px;
+  height: 360px;
+  margin: 30px;
+  position: relative;
+}
+
+/* 内部旋转体 */
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* 翻转状态 */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* 放大状态 */
+.flip-card.zoomed .flip-card-inner {
+  transform: scale(1.2);
+}
+
+/* 正面和背面通用 */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* 背面样式 */
+.flip-card-back {
+  background-color: #dd3131;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.2em;
+  font-family: 'Ubuntu', sans-serif;
+  transform: rotateY(0deg);
+}
+
+/* 正面样式 */
+.flip-card-front {
+  background-color: white;
+  transform: rotateY(180deg);
+  overflow: hidden;
+  padding: 20px 30px;
+}
+
+/* 正面内容结构：图表标题 */
+.chart-title h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.chart-title p {
+  font-size: 0.85em;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* 图表区域（两个图表并排） */
+.chart-pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+/* 每个图表块大小与缩放 */
+.chart-block {
+  min-width: 300px;
+  max-width: 300px;
+  transform: scale(0.35);
+  transform-origin: top left;
+  margin-right: 30px;
+}
+
+.chart-block svg {
+  display: block;
+}
+
+/* 时间标签文本在背面卡片中 */
+.time-label {
+  font-weight: bold;
+}

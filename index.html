@@ -149,12 +149,111 @@
       <!-- 图文分析区块 -->
       <div class="chart-analysis-section">
         <h3>Looking Closer: Does Sleeping Early Really Help?</h3>
-        <div class="four-charts">
-          <img src="img1.jpg" alt="Early Sleep Group Size" />
-          <img src="img2.jpg" alt="Early Sleep Quality" />
-          <img src="img3.jpg" alt="Late Sleep Group Size" />
-          <img src="img4.jpg" alt="Late Sleep Quality" />
+        
+
+
+      <!-- D3作图 -->
+      <div class="card-row">
+        <!-- 卡片1：20:00–20:30 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <p class="time-label">20:00–20:30</p>
+            </div>
+            <div class="flip-card-front chart-card interactive-chart-card">
+              <div class="chart-title">
+                <h3>People Asleep - Sleep Quality</h3>
+                <p>20:00–20:30</p>
+              </div>
+              <div class="chart-pair">
+                <div class="chart-block">
+                  <div id="sleep-bar-chart"></div>
+                </div>
+                <div class="chart-block">
+                  <div id="sleep-quality-chart"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- 卡片2：20:30–21:00 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <p class="time-label">20:30–21:00</p>
+            </div>
+            <div class="flip-card-front chart-card interactive-chart-card">
+              <div class="chart-title">
+                <h3>People Asleep - Sleep Quality</h3>
+                <p>20:30–21:00</p>
+              </div>
+              <div class="chart-pair">
+                <div class="chart-block">
+                  <div id="sleep-bar-chart-2030"></div>
+                </div>
+                <div class="chart-block">
+                  <div id="sq-chart-2030"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-row">
+        <!-- 卡片3：23:00–23:30 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <p class="time-label">23:00–23:30</p>
+            </div>
+            <div class="flip-card-front chart-card interactive-chart-card">
+              <div class="chart-title">
+                <h3>People Asleep - Sleep Quality</h3>
+                <p>23:00–23:30</p>
+              </div>
+              <div class="chart-pair">
+                <div class="chart-block">
+                  <div id="sleep-chart-2330"></div>
+                </div>
+                <div class="chart-block">
+                  <div id="sq-chart-2330"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片4：23:30–24:00 -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-back">
+              <p class="time-label">23:30–24:00</p>
+            </div>
+            <div class="flip-card-front chart-card interactive-chart-card">
+              <div class="chart-title">
+                <h3>People Asleep - Sleep Quality</h3>
+                <p>23:30–24:00</p>
+              </div>
+              <div class="chart-pair">
+                <div class="chart-block">
+                  <div id="sleep-chart-2330-late"></div>
+                </div>
+                <div class="chart-block">
+                  <div id="sq-chart-2330b"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- 四张图 -->
+      <div class="four-charts">
+      </div>
         <p class="analysis-text">
           I compared the number of people who went to bed between 20:00 and 21:00 with their reported sleep quality, and found no clear correlation.
           Similarly, among those who slept between 23:00 and 24:00, sleep quality still showed no strong link to timing.
