@@ -1004,21 +1004,30 @@ svgSQ2330B.selectAll("rect")
 
 
 // card
+// 处理卡片翻转和双击放大
 document.querySelectorAll('.flip-card').forEach(card => {
   const inner = card.querySelector('.flip-card-inner');
 
-  // 单击翻转（正面<->背面）
+  // 点击卡片翻转
   card.addEventListener('click', () => {
     card.classList.toggle('flipped');
     card.classList.remove('zoomed'); // 翻转时取消放大
+    card.classList.remove('fullscreen'); // 翻转时也取消全屏
   });
 
-  // 双击放大（仅在正面时触发）
+  // 双击卡片仅在正面时放大（局部放大）
   card.addEventListener('dblclick', () => {
-    if (card.classList.contains('flipped')) {
+    if (!card.classList.contains('flipped')) {
       card.classList.toggle('zoomed');
     }
   });
 });
+
+// 点击右上角按钮放大至全屏
+function toggleFullScreen(btn) {
+  const card = btn.closest('.flip-card');
+  card.classList.toggle('fullscreen');
+}
+
 
 
